@@ -5,6 +5,10 @@ TODO(team): implement the pricing rule(s) assigned to you in the README.
 
 def discount(subtotal):
     return subtotal * 0.9
+def _apply_tax(subtotal):
+    """Apply tax to the subtotal."""
+    tax_rate = 0.08  # 8% tax
+    return subtotal * (1 + tax_rate)
 
 def calculate_total(
     subtotal, apply_discount=False, apply_tax=False, apply_shipping=False
@@ -15,6 +19,8 @@ def calculate_total(
     if total > 50 or apply_discount:
         total = discount(total)
 
+    if apply_tax:
+        total = _apply_tax(total)
     return total
 
 
