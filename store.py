@@ -16,7 +16,7 @@ def calculate_total(
     """Calculate the final total a customer pays for their cart."""
     total = subtotal
 
-    if total > 50 or apply_discount:
+    if total > 50 and apply_discount:
         total = discount(total)
 
     if apply_tax:
